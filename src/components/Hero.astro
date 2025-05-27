@@ -1,10 +1,12 @@
 ---
 import { AtSign, Linkedin, Github } from "@lucide/astro";
+import ImageSource from "../assets/pablomaurig-thumbnail.png";
+import { Image } from "astro:assets";
 ---
 
 <div class="gap-2 flex flex-col">
-  <img
-    src="/src/assets/pablomaurig-thumbnail.png"
+  <Image
+    src={ImageSource}
     alt="Imagen de pablo Maurig"
     class="rounded-full w-32 h-32"
   />
