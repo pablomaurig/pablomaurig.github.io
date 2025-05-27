@@ -1,0 +1,70 @@
+---
+interface Props {
+  jobExperience: {
+    JobTitle: string;
+    Company: string;
+    condition?: string;
+    startDate: string;
+    endDate?: string;
+    technologies: string[];
+    description: string[];
+    skills: string[];
+  }[];
+}
+const { jobExperience } = Astro.props;
+import { BriefcaseBusiness } from "@lucide/astro";
+---
+
+{
+  jobExperience.map((job) => {
+    const formatedIsoStartDate = new Date(job.startDate).toLocaleDateString(
+      "en-US",
+      {
+        month: "short",
+        year: "numeric",
+      },
+    );
+    const formatedIsoEndDate = job.endDate
+      ? new Date(job.endDate).toLocaleDateString("en-US", {
+          month: "short",
+          year: "numeric",
+        })
+      : "Present";
+    return (
+      <div class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-6 md:gap-10 md:space-x-4 before:border-dashed">
+        <div class="relative pb-12 md:col-span-2">
+          <div class="sticky top-0">
+            <span class="text-sky-600 -left-[52px] absolute rounded-full text-5xl border-2 border-sky-600 bg-white dark:bg-gray-800 dark:border-sky-600 b-rounded-full p-2">
+              <BriefcaseBusiness size={18} />
+            </span>
+
+            <h3 class="text-xl font-bold text-sky-600">{job.JobTitle}</h3>
+            <h4 class="font-semibold text-xl text-gray-600 dark:text-white">
+              {job.Company}
+            </h4>
+            <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80">
+              {job.condition ?? null} | {formatedIsoStartDate} -{" "}
+              {formatedIsoEndDate}
+            </time>
+            <h5 class="mt-2">{job.technologies.join(" | ")}</h5>
+          </div>
+        </div>
+        <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-4">
+          <ul class="list-disc">
+            {job.description.map((desc) => (
+              <li>{desc}</li>
+            ))}
+          </ul>
+
+          <div>
+            {job.skills.map((skill) => (
+              <span class="inline-flex items-center px-2 py-1 mr-2 mt-2 text-xs font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-200 dark:text-blue-800">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  })
+}

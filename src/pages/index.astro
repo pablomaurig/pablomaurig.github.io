@@ -1,0 +1,189 @@
+---
+import SectionContainer from "@components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+import Hero from "@components/Hero.astro";
+import ExperienceTimeline from "@components/ExperienceTimeline.astro";
+
+const EXPERIENCE = [
+  {
+    JobTitle: "Software Engineer",
+    Company: "Santex",
+    condition: "Remote",
+    startDate: "2022-01",
+    endDate: "2025-01",
+    technologies: ["React Native", "Node"],
+    description: [
+      "Contributed to the migration of a legacy mobile app from Capacitor to React Native with Expo, significantly improving app performance and user satisfaction.",
+      "Designed and implemented A/B tested features, boosting engagement and conversion rates.",
+      "Worked closely with design, QA, and backend teams to deliver cohesive and accessible user experiences.",
+      "Integrated AWS services, Datadog, and Amplitude for enhanced monitoring and analytics.",
+    ],
+    skills: [
+      "Expo",
+      "Capacitor",
+      "TypeScript",
+      "Mobile Architecture",
+      "CI/CD",
+      "Amplitude",
+      "Datadog",
+      "AWS Lambda",
+      "User Testing",
+      "A/B Testing",
+      "Agile",
+      "Cross-functional Collaboration",
+    ],
+  },
+  {
+    JobTitle: "Software Developer",
+    Company: "Globant",
+    condition: "Remote",
+    startDate: "2020-01",
+    endDate: "2022-01",
+    technologies: ["React, Next.js, Node"],
+    description: [
+      "Developed modular, scalable web apps using React and Redux.",
+      "Built and deployed backend services with Nest.js and AWS.",
+      "Participated in agile ceremonies and collaborated with cross-functional teams in a fast-paced delivery environment.",
+    ],
+    skills: [
+      "Redux",
+      "Nest.js",
+      "TypeScript",
+      "AWS Lambda",
+      "REST APIs",
+      "Microservices",
+      "Jest",
+      "Scrum",
+      "Component Design",
+      "State Management",
+    ],
+  },
+  {
+    JobTitle: "Frontend Developer",
+    Company: "Global Hits",
+    condition: "Buenos Aires",
+    startDate: "2019-01",
+    endDate: "2020-01",
+    technologies: ["React", "Gatsby", "Next.js"],
+    description: [
+      "Delivered responsive dashboards using React and real-time data pipelines.",
+      "Built high-performance static websites with Gatsby for enhanced SEO and load times.",
+      "Advocated for reusable UI components and design systems with Storybook.",
+    ],
+    skills: [
+      "Gatsby",
+      "Storybook",
+      "Charting Libraries",
+      "Data Visualization",
+      "Responsive Design",
+      "SEO Optimization",
+      "Design Systems",
+      "CSS-in-JS",
+    ],
+  },
+  {
+    JobTitle: "Frontend Developer",
+    Company: "Secretaría de Modernización",
+    condition: "Buenos Aires",
+    startDate: "2019-01",
+    endDate: "2019-12",
+    technologies: ["JavaScript, Bootstrap"],
+    description: [
+      "Developed templates and dynamic tables using REST APIs and Google Sheets.",
+      "Focused on creating accessible, responsive components for government platforms.",
+      "Engaged with multidisciplinary teams to align technical solutions with public needs.",
+    ],
+    skills: [
+      "HTML5",
+      "CSS3",
+      "REST APIs",
+      "Google Sheets API",
+      "Accessibility (WCAG)",
+      "Responsive Web Design",
+      "Public Sector Platforms",
+    ],
+  },
+  {
+    JobTitle: "Lead Web Developer",
+    Company: "Nala Media",
+    condition: "Buenos Aires",
+    startDate: "2018-01",
+    endDate: "2019-01",
+    technologies: ["WordPress"],
+    description: [
+      "Managed development of WordPress-based websites integrated with React components.",
+      "Led a small team and coordinated with designers and clients to meet business goals.",
+      "Delivered pixel-perfect layouts and user-friendly admin panels.",
+    ],
+    skills: [
+      "React",
+      "PHP",
+      "Custom WordPress Themes",
+      "ACF (Advanced Custom Fields)",
+      "Team Leadership",
+      "UI/UX Design Handoff",
+      "Pixel-Perfect Implementation",
+      "Client Communication",
+    ],
+  },
+  {
+    JobTitle: "Freelance Developer",
+    Company: "Various Clients",
+    condition: "Remote",
+    startDate: "2015-01",
+    endDate: "2018-01",
+    technologies: ["WordPress"],
+    description: [
+      "Developed custom WordPress themes and small web applications using JavaScript.",
+      "Coordinated freelance collaborators and maintained client communication.",
+      "Delivered full-cycle solutions from design to deployment.",
+    ],
+    skills: [
+      "JavaScript",
+      "HTML/CSS",
+      "PHP",
+      "WordPress Plugins",
+      "SEO",
+      "Domain & Hosting Setup",
+      "Freelance Collaboration",
+      "Pixel-Perfect Implementation",
+    ],
+  },
+  {
+    JobTitle: "Layout & Web Developer",
+    Company: "Various",
+    condition: "Buenos Aires",
+    startDate: "2010-01",
+    endDate: "2015-01",
+    technologies: ["HTML/CSS"],
+    description: [
+      "Built frontends for eCommerce and marketing websites using HTML, CSS, JS, and PHP.",
+      "Worked with WordPress, handled responsive design, and ensured cross-browser compatibility.",
+    ],
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "PHP",
+      "WordPress",
+      "Responsive Layouts",
+      "Browser Testing",
+      "Theme Customization",
+    ],
+  },
+];
+---
+
+<Layout>
+  <SectionContainer title="About me" label="about">
+    <Hero />
+  </SectionContainer>
+  <SectionContainer title="Work Experience" label="experience">
+    <h1
+      class="text-2xl font-bold tracking-tight text-zinc-800 sm:text-3xl dark:text-zinc-100 mb-14"
+    >
+      Work Experience
+    </h1>
+    <ExperienceTimeline jobExperience={EXPERIENCE} />
+  </SectionContainer>
+</Layout>

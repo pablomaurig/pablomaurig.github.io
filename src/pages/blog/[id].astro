@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "src/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const blogArticles = await getCollection("blogArticles");
+  return blogArticles.map((article) => ({
+    params: { id: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { slug, data } = article;
+const { title, author, readtime } = data;
+
+const { Content } = await render(article);
+---
+
+<Layout>
+  <a href="/"> ← Go Back</a>
+  <article>
+    <h1 transition:name={`/blog/${slug}`}>{title}</h1>
+    <p>{author} - <small>{readtime}</small></p>
+    <div class="prose prose-invert max-w-none">
+      <Content />
+    </div>
+  </article>
+</Layout>
