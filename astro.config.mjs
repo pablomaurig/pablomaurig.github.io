@@ -10,5 +10,5 @@ export default defineConfig({
   },
   // Uncomment to deploy to GitHub Pages
   site: "https://pablomaurig.github.io",
-  base: "pablomaurig.github.io",
+  base: "personal-site",
 });
