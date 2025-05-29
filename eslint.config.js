@@ -1,15 +1,23 @@
 import eslintPluginAstro from "eslint-plugin-astro";
 import jsxA11y from "eslint-plugin-jsx-a11y";
+import tsParser from "@typescript-eslint/parser";
 
 export default [
-  // add more generic rule sets here, such as:
-  // js.configs.recommended,
-  ...eslintPluginAstro.configs.recommended,
-  jsxA11y.configs.recommended,
+  ...eslintPluginAstro.configs.recommended, // handles Astro parsing for .astro files
   {
+    files: ["**/*.{ts,js}"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
+    plugins: {
+      "jsx-a11y": jsxA11y,
+    },
     rules: {
-      // override/add rules settings here, such as:
-      // "astro/no-set-html-directive": "error"
+      "jsx-a11y/alt-text": "warn",
     },
   },
 ];
