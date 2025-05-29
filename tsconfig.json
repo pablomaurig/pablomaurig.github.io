@@ -1,8 +1,23 @@
 {
   "extends": "astro/tsconfigs/base",
   "include": [".astro/types.d.ts", "**/*", ".eslintrc.js"],
-  "exclude": ["dist"],
+  // "include": [
+  //   ".astro/types.d.ts",
+  //   "src",
+  //   "src/**/*.astro",
+  //   "**/*",
+  //   ".eslintrc.js"
+  // ],
+  "exclude": ["dist", "**/*.test.ts"],
   "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
+    // "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "types": ["astro/client"],
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
